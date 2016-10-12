@@ -26,6 +26,12 @@
 (function(root){
 
     var CanvasImage = function (image) {
+        if((typeof image) == 'string') {
+            var base64 = image;
+            image = new Image();
+            image.src = base64;
+        }
+
         this.canvas  = document.createElement('canvas');
         this.context = this.canvas.getContext('2d');
 
